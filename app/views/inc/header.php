@@ -13,6 +13,6 @@
     <title><?php echo SITENAME; ?></title>
 </head>
 <body>
-<?php require APPROOT . '/views/inc/admin/navbar.php'; ?>
+
     <div class="container">
     
