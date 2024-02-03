@@ -6,7 +6,9 @@
 </a>
  <div class="card mt-5">
     <div class="card-body">
-        <h1>hey</h1>
+      <?php foreach($data['categories'] as $category) : ?>
+        <p class="border-bottom"><?php echo (!empty($category->parent_category)) ? $category->parent_category . ' > ' . $category->category_name : $category->category_name; ?></p>
+      <?php endforeach; ?> 
     </div>
  </div>
 <?php require APPROOT . '/views/inc/admin/footer.php'; ?>

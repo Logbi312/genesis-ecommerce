@@ -17,14 +17,16 @@
           <div class="mb-3">
             <label for="parentCategory" class="form-label">Parent Category</label>
             <select name="parentCategory" class="form-select" aria-label="Default select example">
-              <option selected>None</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+            <option selected value="">None</option>
+            <?php foreach($data['categories'] as $category) : ?>
+              <option value="<?php echo (!empty($category->parent_category)) ? $category->parent_category . ' > ' . $category->category_name : $category->category_name; ?>">
+                <?php echo (!empty($category->parent_category)) ? $category->parent_category . ' > ' . $category->category_name : $category->category_name; ?>
+              </option>
+              <?php endforeach; ?> 
             </select>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
-        </form>       
+        </form> 
       </div>
     </div>
   </div>
@@ -32,11 +34,4 @@
 
 
 
- <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var quill = new Quill('#quillEditor', {
-      theme: 'snow'  // 'snow' is a clean and simple theme
-    });
-  });
-</script>
 <?php require APPROOT . '/views/inc/admin/footer.php'; ?>

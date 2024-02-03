@@ -22,4 +22,10 @@
             }
         }
 
+        public function getCategories() {
+            $this->db->query('SELECT * FROM categories ORDER BY parent_category ASC, category_name ASC');
+            $results = $this->db->resultSet();
+            return $results;
+        }
+
     }
